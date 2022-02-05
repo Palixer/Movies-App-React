@@ -1,3 +1,4 @@
+import { MovieCard } from "./MovieCard";
 import movies from "./movies.json";
 
 export function MoviesGrid() {
@@ -5,7 +6,7 @@ export function MoviesGrid() {
 	return (
 		<ul>
 			{movies.map((movie) => (
-				<li>{movie.title}</li>
+			<MovieCard key={movie.id}movie = {movie} />
 			))}
 		</ul>
 	);
