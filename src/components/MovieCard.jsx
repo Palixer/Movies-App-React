@@ -4,14 +4,16 @@ export function MovieCard({ movie }) {
 
 	return (
 		<li className={styles.movieCard}>
-			<img
-				width={230}
-				height={345}
-				className={styles.movieImage}
-				src={imageUrl}
-				alt={movie.title}
-			/>
-			<div> {movie.title}</div>
+			<link to={"/movies/" + movie.id}>
+				<img
+					width={230}
+					height={345}
+					className={styles.movieImage}
+					src={imageUrl}
+					alt={movie.title}
+				/>
+				<div> {movie.title}</div>
+			</link>
 		</li>
 	);
 }

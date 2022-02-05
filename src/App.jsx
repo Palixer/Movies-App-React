@@ -1,23 +1,23 @@
 import { MoviesGrid } from "./components/MoviesGrid";
 import styles from "./App.module.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Routes, Navigate } from "react-router-dom";
+import { MovieDetails } from "./pages/MovieDetails";
+import { LandingPage } from "./pages/LandingPage";
 
 export function App() {
 	return (
 		<Router>
 			<header>
-				{/* <h1 className={styles.title}>Movies</h1> */}
-				<Link to="/">Home</Link>
-				<br />
-				<Link to="/movie">Movie</Link>
+				<link to="/">
+					<h1 className={styles.title}>Movies</h1>
+				</link>
 			</header>
 			<main>
-				<Switch>
-					<Route exact path="/movie">
-						Movie
-					</Route>
-					<Route path="/">Home</Route>
-				</Switch>
+				<Routes>
+					<Route path="/movie/:movieId" element={<MovieDetails />} />					
+					<Route path="/" element={<LandingPage />} />
+					<Route path="*" element={<Navigate replace to="/"/>} />
+				</Routes>
 			</main>
 		</Router>
 	);
