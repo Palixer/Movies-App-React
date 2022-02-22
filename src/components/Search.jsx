@@ -18,13 +18,13 @@ export function Search() {
         <input
           className={styles.searchInput}
           type="text"
-          value={search ?? ""}
+          value={search ?? " "}
           autoFocus
-          placeholder="Title"
+          placeholder="Search Movie"
           aria-label="Search Movies"
           onChange={(e) => {
             const value = e.target.value;
-            navigate("/?search=" + value);
+            navigate(`/?search=${value}`);
           }}
         />
         <FaSearch size={20} color="black" className={styles.searchButton} />

@@ -7,15 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { Empty } from "./Empty";
 
 
-function useAsync(asyncFn, onSuccess) {
-  useEffect(() => {
-    let isActive = true;
-    asyncFn().then(data => {
-      if (isActive) onSuccess(data);
-    });
-    return () => { isActive = false };
-  }, [asyncFn, onSuccess]);
-}
+
 
 
 export function MoviesGrid({ search }) {
